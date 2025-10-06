@@ -1,0 +1,16 @@
+---
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="en">
+  <head>
+    <title>Astro View transitions Demo</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <ClientRouter />
+  </head>
+  <body>
+    <slot name="header" />
+    <slot name="main" />
+    <slot name="footer" />
+  </body>
+</html>

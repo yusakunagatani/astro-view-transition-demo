@@ -1,0 +1,18 @@
+---
+export type Props = {
+  title: string;
+};
+---
+
+<main>
+  <h1>{Astro.props.title}</h1>
+</main>
+
+<style>
+  main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+  }
+</style>

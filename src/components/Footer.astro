@@ -1,0 +1,62 @@
+---
+const normalizePath = (path: string) => {
+  if (!path) return '/';
+  if (path === '/') return '/';
+  return path.replace(/\/+$/, '');
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
+
+const baseNavLinks = [
+  { href: '/', label: 'TOP' },
+  { href: '/page1', label: 'PAGE1' },
+  { href: '/page2', label: 'PAGE2' }
+] as const;
+
+const navLinks = baseNavLinks.map((link) => ({
+  ...link,
+  isActive: normalizePath(link.href) === currentPath
+}));
+---
+<footer class="footer">
+  <nav>
+    <ul>
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class:list={['nav-link', { active: link.isActive }]}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</footer>
+
+<style>
+  .footer {
+    background-color: #f0f0f0;
+    padding: 1rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav-link.active {
+    text-decoration: underline;
+  }
+</style>

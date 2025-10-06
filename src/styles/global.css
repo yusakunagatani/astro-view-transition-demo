@@ -1,0 +1,71 @@
+/* 
+  reset.css
+*/
+
+/* 1) 直感的なボックスモデル */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2) 既定マージンの撤去 */
+* {
+  margin: 0;
+}
+
+/* 3) 高さの基準を整える */
+html,
+body {
+  height: 100%;
+}
+
+/* 4) 読みやすさ */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5) リスト系（必要時のみ） */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* 6) スクロール挙動（フォーカス時のみスムース） */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* 7) メディア要素の扱いやすさ */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 8) フォーム系のフォント継承 */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 9) 文章のオーバーフロー対策 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 
+  global.css
+*/
